@@ -27,9 +27,12 @@ function createPhotoCardsMarkup(galleryItems) {
 }
 
 function onContainerGalleryClick(evt) {
-  if (!evt.target.classList.contains('.gallery__item')) {
+  if (evt.target.nodeName !== 'IMG') {
     return;
   }
+
+  evt.preventDefault();
+
   console.log(evt.target);
 }
 
