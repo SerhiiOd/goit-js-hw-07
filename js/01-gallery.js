@@ -5,6 +5,7 @@ const containerGallery = document.querySelector('.gallery');
 const cardsMarkup = createPhotoCardsMarkup(galleryItems);
 
 containerGallery.insertAdjacentHTML('beforeend', cardsMarkup);
+containerGallery.addEventListener('click', onContainerGalleryClick);
 
 function createPhotoCardsMarkup(galleryItems) {
   return galleryItems
@@ -23,6 +24,13 @@ function createPhotoCardsMarkup(galleryItems) {
 `;
     })
     .join('');
+}
+
+function onContainerGalleryClick(evt) {
+  if (!evt.target.classList.contains('.gallery__item')) {
+    return;
+  }
+  console.log(evt.target);
 }
 
 console.log(galleryItems);
